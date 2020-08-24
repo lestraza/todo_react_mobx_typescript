@@ -1,0 +1,188 @@
+html,
+body,
+div,
+input {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+input {
+    width: 398px;
+    height: 40px;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    padding: 0 12px;
+    display: block;
+}
+input:focus {
+    outline: none;
+}
+.wrapper {
+    margin: 50px auto;
+    width: 1200px;
+}
+.header {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1124px;
+    height: 56px;
+}
+.error {
+    display: block;
+    height: 19px;
+    font-size: 12px;
+    color: #ff1b00;
+}
+
+.button {
+    font-size: 17px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 36px;
+    font-weight: bold;
+    line-height: 37px;
+    cursor: pointer;
+}
+.button:hover {
+    color: #e6e6e6;
+}
+.button--primary {
+    border: 1px solid #39b54a;
+}
+.button--primary:hover {
+    background-color: #39b54a;
+}
+.button--secondary {
+    border: 1px solid #ff0000;
+}
+.button--secondary:hover {
+    background-color: #ff0000;
+}
+.button--info {
+    border: 1px solid #0071bc;
+}
+.button--info:hover {
+    background-color: #0071bc;
+}
+.table {
+    width: 1153px;
+    height: 130px;
+}
+.todo {
+    width: 1121px;
+    height: 42px;
+
+    border-top: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    display: flex;
+}
+.todo > div {
+    border-right: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.todo_id {
+    width: 162px;
+    height: 42px;
+    font-family: Tahoma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+}
+.todo_title {
+    padding: 0 12px;
+    width: 847px;
+    height: 42px;
+    font-family: Tahoma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+}
+.todo_action {
+    width: 112px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-right: 1px solid #e6e6e6;
+    margin-bottom: -1px;
+}
+.icon-button {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    border: 1px solid #39b54a;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 4px 0;
+}
+
+.icon-button:hover > img {
+    filter: brightness(100);
+}
+.icon-button--primary {
+    color: #39b54a;
+    border-color: #39b54a;
+}
+.icon-button--primary:hover {
+    background-color: #39b54a;
+}
+
+.icon-button--secondary {
+    border-color: #ff0000;
+}
+.icon-button--secondary:hover {
+    background-color: #ff0000;
+}
+
+.modal {
+    width: 462px;
+    height: 182px;
+    border: 1px solid #e6e6e6;
+    position: absolute;
+    z-index: 5;
+    display: none;
+    left: 35%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.modal > input {
+    margin: 10px 0;
+}
+
+.modal--button {
+    float: right;
+}
+.modal--show {
+    display: block;
+}
+.modal--header {
+    display: flex;
+    justify-content: space-between;
+}
+.modal--header > div:last-child {
+    padding: 7px 0;
+}
+.edit--header > div:first-child {
+    margin: 10px 0;
+}
+.back--title {
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
