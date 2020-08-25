@@ -20,6 +20,9 @@ class MainStore {
     @observable
     public isShowModal: boolean = false;
 
+    @observable
+    public newTitle?: string = ''
+
     @computed
     public get editingTodo() {
         return this.todos.find((todo) => todo.id === this.selectedId);
@@ -64,17 +67,26 @@ class MainStore {
     @action.bound
     public closeModal() {
         this.isShowModal = false;
+        this.removeError()
     }
 
     @action.bound
-    public saveNewPost(title: string) {
-        postNewTaskReq(title).then((res) => {
-            if (res.data.success) {
-                this.getTasks();
-            } else {
-                this.error = res.data.error;
-            }
-        });
+    public setNewTodo(title: string) {
+        this.newTitle = title;
+    }
+
+    @action.bound
+    public saveNewPost() {
+        if (this.newTitle) {
+            postNewTaskReq(this.newTitle).then((res) => {
+                if (res.data.success) {
+                    this.getTasks();
+                    this.newTitle = ''
+                } else {
+                    this.error = res.data.error;
+                }
+            });
+        }
     }
 
     @action.bound
@@ -88,7 +100,6 @@ class MainStore {
         });
     }
 
- 
     @action.bound
     public saveNewTitle(newTitle: string) {
         if (this.editingTodo) {

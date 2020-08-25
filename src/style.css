@@ -160,9 +160,11 @@ input:focus {
     left: 35%;
     padding: 20px;
     box-sizing: border-box;
+    background-color: white;
 }
 .modal > input {
     margin: 10px 0;
+    
 }
 
 .modal--button {

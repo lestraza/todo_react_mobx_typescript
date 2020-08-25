@@ -17,41 +17,29 @@ export default class Modal extends React.Component<IModalProps> {
         return this.props as IModalProps & { store: MainStore };
     }
 
-    state = {
-        title: "",
-    };
-    componentWillUnmount() {
-        this.mainStore.removeError();
-    }
-
     @action.bound
     public onClickClose() {
-        this.setState({ title: "" }, () => {
-            this.mainStore.closeModal();
-            this.mainStore.removeError();
-        });
+        this.mainStore.closeModal();
     }
 
     @action.bound
     private onChangeInputText(event: React.ChangeEvent<HTMLInputElement>) {
         const value = event.currentTarget.value;
-        this.setState({ title: value }, () => {
-        });
+        this.mainStore.setNewTodo(value)
     }
 
     @action.bound
     public savePost() {
-        if (this.state.title) {
-            this.mainStore.saveNewPost(this.state.title);
-            this.mainStore.removeError();
+        if (this.mainStore.newTitle) {
+            this.mainStore.saveNewPost();
             this.mainStore.closeModal();
         } else {
             this.mainStore.error = "Заголовок не может быть пустым.";
         }
     }
     public render() {
-        const { isShowModal, error } = this.mainStore;
-        const { title } = this.state;
+        const { isShowModal, error, newTitle } = this.mainStore;
+
         return (
             <div className={`modal ${isShowModal ? "modal--show" : ""}`}>
                 <div className="modal--header">
@@ -64,7 +52,7 @@ export default class Modal extends React.Component<IModalProps> {
                 </div>
                 <input
                     type="text"
-                    value={title}
+                    value={newTitle}
                     onChange={this.onChangeInputText}
                 />
                 <div className="error">{error && error}</div>
